@@ -8,6 +8,9 @@ const server = http.createServer((req, res) => {
 	});
 
 	switch (req.method) {
+		case 'DELETE':
+			res.write('DELETE ' + req.url);
+			break;
 		case 'GET':
 			res.write('GET ' + req.url);
 			break;
@@ -30,7 +33,7 @@ const server = http.createServer((req, res) => {
 }).on('clientError', (e) => {
 	console.error('[' + new Date() + '] Client Error', e);
 });
-const port = 8000;
+const port = 8001;
 server.listen(port, () => {
 	console.info('[' + new Date() + '] Listening on ' + port);
 });
